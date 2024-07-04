@@ -16,16 +16,26 @@ function adicionarFilme(eventoRecebido) {
     let inputDuracao = document.querySelector('#id_duracao').value
     let inputSinopse = document.querySelector('#id_sinopse').value
 
-
     if (inputCapa != "" && inputNome != "" && inputAutor != "" && inputLancamento != "" && inputGenero != "" && inputDuracao != "" && inputSinopse != "") {
-
         detalhesFilmes.push(inputCapa, inputNome, inputAutor, inputLancamento, inputGenero, inputDuracao, inputSinopse)
     } 
     listaDeFilmes.push(detalhesFilmes)
     detalhesFilmes = []
     localStorage.setItem('filmes', JSON.stringify(listaDeFilmes))
+    divCatalogo.innerHTML = ""
+    for (let i = 0; i < listaDeFilmes.length; i++) {
+        divCatalogo.innerHTML += `<div class="itens">
+        <img id="imagem-item" src="${listaDeFilmes[i][0]}" alt="">
+        <p>Título: ${listaDeFilmes[i][1]}</p>
+        <p>Diretor: ${listaDeFilmes[i][2]}</p>
+        <p>Lançamento: ${listaDeFilmes[i][3]}</p>
+        <p>Gênero: ${listaDeFilmes[i][4]}</p>
+        <p>Duração: ${listaDeFilmes[i][5]}</p>
+        <p>Sinopse: ${listaDeFilmes[i][6]}</p>
+        <button id="botao-excluir" onclick="excluirFilme(${i})"><img id="imagem-excluir" src="botaoExcluir.png" alt=""></button>
+        </div>`
+    }
 }
-
 let divCatalogo = document.getElementById('catalogo')
 
 if (listaDetalhesDeFilme) {
@@ -45,11 +55,7 @@ if (listaDetalhesDeFilme) {
         </div>`
 
     }
-
-
 }
-
-
 function excluirFilme(indice) {
     listaDeFilmes.splice(indice, 1)
     localStorage.setItem('filmes', JSON.stringify(listaDeFilmes))
@@ -63,10 +69,7 @@ function excluirFilme(indice) {
         <p>Gênero: ${listaDeFilmes[i][4]}</p>
         <p>Duração: ${listaDeFilmes[i][5]}</p>
         <p>Sinopse: ${listaDeFilmes[i][6]}</p>
-        <button onclick="excluirFilme(${i})"><img id="imagem-excluir" src="botaoExcluir.png" alt=""></button>
+        <button id="botao-excluir" onclick="excluirFilme(${i})"><img id="imagem-excluir" src="botaoExcluir.png" alt=""></button>
         </div>`
-
     }
-
-
 }
