@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="codigo-personagem.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img id="logo" src="DR.png" alt="Logo da página">
+        <nav>
+            <a href="cadastrofilmes.html">Filmes</a>
+            <a href="inicio-personagem.html">Personagens</a>
+        </nav>
+        <button id="botao-add" onclick="mostrarCadastro()"><img id="imagem-add" src="botaoAdd.png" alt=""></button>
+    </header>
+    <div id="cadastro-fora">
+        <div  class="oculta" id="cadastro">
+            <div id="nav-cadastro">
+                <h2>Cadastro de Personagens</h2>
+                <button id="botao-fechar" onclick="mostrarCadastro()"><img id="imagem-fechar" src="botaoFechar.png" alt=""></button>    
+            </div>
+            <form onsubmit="cadastrarPersonagem(event)">
+                <input type="url" name="url-personagem" id="url-personagem" placeholder="URL do Personagem">
+                <input type="text" name="nome-personagem" id="nome-personagem" placeholder="Nome do Personagem">
+                <input type="text" name="titulo-filme" id="titulo-filme" placeholder="Título do Filme">
+                <input type="text" name="nome-ator" id="nome-ator" placeholder="Nome do Ator/Atriz">
+                <textarea name="descricao-personagem" id="descricao-personagem" cols="30"
+                    rows="10" placeholder="Descrição Personagem"></textarea>
+                <textarea name="habilidade-ator" id="habilidade-ator" cols="30" rows="10" placeholder="Habilidades do Ator"></textarea>
+                <button id="botao-enviar" type="submit">Adicionar Personagem</button>
+            </form>
+        </div>        
+    </div>
+    <h1>Lista de Personagens</h1>
+    <div id="catalogo"></div>
+</body>
+</html>
