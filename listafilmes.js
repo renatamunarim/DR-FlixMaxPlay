@@ -41,7 +41,7 @@ if (listaDetalhesDeFilme) {
         <p>Duração: ${listaDeFilmes[i][4]}</p>
         <p>${listaDeFilmes[i][5]}</p>
         <p>${listaDeFilmes[i][6]}</p>
-        <button onclick="excluirFilme(${i})"><img id="imagem-excluir" src="botaoExcluir.png" alt=""></button>
+        <button id="botao-excluir" onclick="excluirFilme(${i})"><img id="imagem-excluir" src="botaoExcluir.png" alt=""></button>
         </div>`
 
     }
